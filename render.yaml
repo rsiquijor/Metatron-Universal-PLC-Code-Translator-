@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: metatron-plc-translator
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      - key: METATRON_API_KEY
+        sync: false
+      - key: PYTHONUNBUFFERED
+        value: "1"
